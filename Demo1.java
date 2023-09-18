@@ -4,11 +4,11 @@ import java.util.Collections;
 public class Demo1 {
     public static void main(String[] args) {
         Stack10 stack = new Stack10();
-        System.out.println(stack.peek());
         stack.push(10);
         stack.push(20);
         stack.push(30);
         stack.print();
+        System.out.println(stack.peek());
         System.out.println(stack.pop());
         stack.print();
         
@@ -29,14 +29,16 @@ class Stack10{
 
     }
     int peek(){
-        return head == null ? -1: head.value;
+        return head == null ? -1: tail.value;
     }
     int pop(){
         if(head == null){
             return -1;
         }else{
+            
             int pass= tail.value;
             tail = tail.next;
+            if(tail==null)head=null;
             return pass;
             
         }
@@ -61,6 +63,7 @@ class Stack10{
             }
             Collections.reverse(listValue);
             System.out.println(listValue);
+            
 
         }
 
